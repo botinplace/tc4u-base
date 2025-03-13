@@ -1,0 +1,21 @@
+{
+    "name": "botinplace/base-app",
+    "description": "base app",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MainApp\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "botinplace/tc4u": "dev-main"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/botinplace/tc4u"
+        }
+    ]
+}
