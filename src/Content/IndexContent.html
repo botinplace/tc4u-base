@@ -17,11 +17,34 @@
 <p>Начинаем</p>
 {% endif %}
 
-<h2>Цикл foreach для testvar.myname :</h2>
-{% foreach testvar.myname %}
 
+<h2>Экранированный Цикл foreach для testvar.myname :</h2>
+\{% foreach testvar.myname %}
+qwe
+{%endforeach%}
+
+<h2>Цикл foreach для testvar.myname :</h2>
+
+{% foreach testvar.myname %}
+<p>qwe1  {% foreach testvar.myname %} 1 <b>Условие в цикле: </b>{% if 2==2 %}ЖОПА{% endif %} 2 {% endforeach %}</p>
+{%endforeach%}
+
+<h2>Условие if 2==2:</h2>
+{% if 2==2 %}123OOOOO{% endif %}
+
+Условие \{% if 1==2 %}
+<h2>Просто текст:</h2>
+12345678
+
+<h2>Цикл foreach для testvar.myname</h2>
+{% foreach testvar.myname %}
+ПРОВЕРИТЬ ТУТ \\ РАБОТАЕТ С ДВОЙНЫМ!!!!!!!!!!!!!!!
+<!-- Условие \\{% if 1==2 %} в цикле: -->
 	{% if key==2 %}
-		<p>Вывод значения переменной \{{mytasks_b}} в условии if в цикле foreach: <b>{{mytasks_b}}</b></p>
+
+    <p>Вывод значения переменной \{{mytasks_b}} в условии if в цикле foreach: <b>{{mytasks_b}}</b></p>
+    
+		
 	{% endif %}
 
 <p>key:{{ key }} | value: {{value}}</p>
