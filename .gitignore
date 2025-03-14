@@ -1,0 +1,10 @@
+vendor/
+/src/Config/config.php
+/src/cache/
+/src/Logs/
+composer.lock
+phpunit.xml
+composer.phar
+package.tar
+/packages.json
+/.phpunit

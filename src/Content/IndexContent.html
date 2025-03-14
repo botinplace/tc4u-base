@@ -1,0 +1,29 @@
+<h1>Главная страница</h1>
+
+<h2>Переменная в шаблоне \{{mytasks_b}}:</h2>
+{{mytasks_b}}
+
+<h2>Переменная в шаблоне \{{ testvar.myname.0 }}:</h2>
+{{ testvar.myname.0 }}
+
+<h2>Переменная в шаблоне \{{ mytasks_t }}:</h2>
+{{ mytasks_t }}
+
+<h2>Переменная в шаблоне \{{ key }} и \{{value}}</h2>
+<p>key:{{ key }} | value: {{value}}</p>
+
+<h2>Условие if:</h2>
+{% if 'key'=='key' %}
+<p>Начинаем</p>
+{% endif %}
+
+<h2>Цикл foreach для testvar.myname :</h2>
+{% foreach testvar.myname %}
+
+	{% if key==2 %}
+		<p>Вывод значения переменной \{{mytasks_b}} в условии if в цикле foreach: <b>{{mytasks_b}}</b></p>
+	{% endif %}
+
+<p>key:{{ key }} | value: {{value}}</p>
+
+{% endforeach %}
