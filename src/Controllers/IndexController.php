@@ -15,6 +15,7 @@ class IndexController extends Controller {
         $vars['value'] = 'value из контроллера!';
         $vars['mytasks_t'] = '{% if 1==1 %} ЛУПА {% endif %}';
         $vars['testvar1'] = [11,22,33,44,55];
+		$vars['city'] =[ ['name'=>'Спб','id'=>1],['name'=>'Msc','id'=>2],['name'=>'Ekb','id'=>3],['name'=>'Novosib','id'=>4] ];
         $vars['testvar']['myname'] =  ['нулевой',1,'Vторой',3,4,'Пятый'] ;
         $extra_vars = [];
         $extra_vars['authorconentblock'] = 'ПРИВЕТ!!!!!!';
