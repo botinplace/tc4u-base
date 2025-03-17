@@ -51,11 +51,12 @@ qwe
 
 
 
-<form method="GET" action="/search" class="form-wrapper inline-form">
+<form method="GET" action="search" class="form-wrapper inline-form">
 					<div class="form-column">
 					{% foreach city %}
 					 <p>{{value.name}}{% if value.id==2 %} ХУЙ {{value.name}} ГОРОД {% endif %}:{{value.id}}</p>
 					{% endforeach %}
+
 					<select name="city" id="city"><option disabled="" selected="" value="">Выбрать город</option><option value="1">Санкт-Петербург</option><option value="2">Москва</option><option value="3">Новосибирск</option><option value="4">Екатеринбург</option><option value="5">Казань</option><option value="6">Нижний Новгород</option><option value="7">Челябинск</option><option value="8">Омск</option><option value="9">Самара</option><option value="10">Ростов-на-Дону</option><option value="11">Уфа</option><option value="12">Красноярск</option><option value="13">Пермь</option><option value="14">Воронеж</option><option value="15">Волгоград</option><option value="16">Краснодар</option><option value="17">Саратов</option><option value="18">Тюмень</option><option value="19">Тольятти</option><option value="20">Ижевск</option><option value="21">Барнаул</option><option value="22">Иркутск</option><option value="23">Ульяновск</option><option value="24">Хабаровск</option><option value="25">Ярославль</option><option value="26">Владивосток</option><option value="27">Махачкала</option><option value="28">Томск</option><option value="29">Оренбург</option><option value="30">Кемерово</option><option value="31">Новокузнецк</option><option value="32">Рязань</option><option value="33">Астрахань</option><option value="34">Набережные Челны</option><option value="35">Пенза</option><option value="36">Липецк</option><option value="37">Киров</option></select>
 					<label for="city">Город</label>
 					</div>
