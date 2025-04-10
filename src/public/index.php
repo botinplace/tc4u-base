@@ -59,6 +59,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use Core\Application;
 use Core\ErrorLogger;
 
-$logger = new ErrorLogger(APP.'Logs/log', 1000);
+$logger = new ErrorLogger(ROOT.'Logs/log', 1000);
 $app = new Application();
 $app->run();
