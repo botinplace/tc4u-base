@@ -1,3 +1,4 @@
+.env
 vendor/
 /src/Config/config.php
 /src/cache/
