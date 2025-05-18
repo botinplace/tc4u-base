@@ -40,7 +40,8 @@ function setupHeaders(array $customHeaders = []): void {
 setupHeaders();
 
 // Установка часового пояса
-date_default_timezone_set('Europe/Moscow');
+//date_default_timezone_set('Europe/Moscow');
+date_default_timezone_set($_ENV['APP_TIMEZONE'] ?? 'Europe/Moscow');
 
 // Определение констант
 define('_SKEY', 1);
@@ -68,9 +69,18 @@ use Core\ErrorLogger;
 use Core\Config\Config;
 use Core\Config\LoadEnv;
 
+
 if (!function_exists('env')) {
     function env(string $key, $default = null) {
         return $_ENV[$key] ?? $default;
+    }
+}
+
+if (!function_exists('storage_path')) {
+    function storage_path(string $path = ''): string
+    {
+        //return __DIR__ . '/../storage' . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+		return __DIR__ . '/../' . ($path ? DIRECTORY_SEPARATOR . $path : $path);
     }
 }
 
@@ -79,5 +89,13 @@ Core\Config\LoadEnv::load('../.env');
 Config::load();
 
 $logger = new ErrorLogger(ROOT.'Logs/log', 1000);
+
+// Глобальный обработчик исключений
+set_exception_handler(function (\Throwable $e) use ($logger) {
+    $logger->handleException($e);
+    http_response_code(500);
+    exit('Internal Server Error');
+});
+
 $app = new Application();
 $app->run();
