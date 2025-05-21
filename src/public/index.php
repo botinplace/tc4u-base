@@ -99,12 +99,4 @@ set_exception_handler(function (\Throwable $e) use ($logger) {
 
 $app = new Application();
 
-if (env('APP_ENV') === 'production') {
-    $container = $app->getContainer();
-    if (!file_exists(APP_DIR . 'cache/container_cache.php')) {
-        $container->compile(APP_DIR . 'cache/');
-    }
-    require_once APP_DIR . 'cache/container_cache.php';
-}
-
 $app->run();
