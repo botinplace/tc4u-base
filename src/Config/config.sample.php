@@ -108,12 +108,12 @@ return [
     ],
 
     /* Cache Configuration */
-    'cache' => [
+	'cache' => [
 		'default' => env('CACHE_DRIVER', 'file'),
 		'stores' => [
 			'file' => [
 				'driver' => 'file',
-				'path' => __DIR__.'/../../storage/cache',
+				'path' => APP_DIR.'cache/',
 			],
 			'redis' => [
 				'driver' => 'redis',
