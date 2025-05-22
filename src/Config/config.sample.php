@@ -109,19 +109,24 @@ return [
 
     /* Cache Configuration */
     'cache' => [
-        'default' => env('CACHE_DRIVER', 'file'),
-        'stores' => [
-            'file' => [
-                'driver' => 'file',
-                'path' => __DIR__.'/../../storage/cache',
-            ],
-            'redis' => [
-                'driver' => 'redis',
-                'connection' => 'default',
-            ],
-        ],
-        'prefix' => env('CACHE_PREFIX', 'app_cache'),
-    ],
+		'default' => env('CACHE_DRIVER', 'file'),
+		'stores' => [
+			'file' => [
+				'driver' => 'file',
+				'path' => __DIR__.'/../../storage/cache',
+			],
+			'redis' => [
+				'driver' => 'redis',
+				'host' => env('REDIS_HOST', '127.0.0.1'),
+				'port' => env('REDIS_PORT', 6379),
+				'database' => env('REDIS_DATABASE', 0),
+			],
+			'apcu' => [
+				'driver' => 'apcu',
+			]
+		],
+		'prefix' => env('CACHE_PREFIX', 'app_cache'),
+	],
 
     /* Session Configuration */
     'session' => [
