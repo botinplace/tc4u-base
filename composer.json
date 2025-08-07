@@ -10,7 +10,7 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "botinplace/tc4u": "dev-main"
+        "botinplace/tc4u": "dev-with_di_logic"
     },
     "repositories": [
         {
