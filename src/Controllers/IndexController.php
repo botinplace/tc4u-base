@@ -17,6 +17,7 @@ class IndexController extends Controller {
         $vars['testvar1'] = [11,22,33,44,55];
 		$vars['city'] =[ ['name'=>'Спб','id'=>1],['name'=>'Msc','id'=>2],['name'=>'Ekb','id'=>3],['name'=>'Novosib','id'=>4] ];
         $vars['testvar']['myname'] =  ['нулевой',1,'Vторой',3,4,'Пятый'] ;
+		$vars['errorMsg'] = Session::getFlash('error');
         $extra_vars = [];
         $extra_vars['authorconentblock'] = 'ПРИВЕТ!!!!!!';
         $this->render($vars);
@@ -24,13 +25,27 @@ class IndexController extends Controller {
     
     public function indexPost() {
         
-        if(isset($_POST['afile'])){
-            var_dump( $_POST['afile'] );
-        }
-        
-        if(isset($_FILES)){
-            var_dump( $_FILES );
-        }
-            
+	    $data = Request::postAll();
+	    
+	    $validator = new Validator($data, [
+	        'first_name' => 'required|max:100',
+	        'last_name' => 'required|max:100'
+	    ]);
+	    
+	    // Устанавливаем читаемые имена полей
+	    $validator->setFieldNames([
+	        'first_name' => 'Имя',
+	        'last_name' => 'Фамилия'
+	    ]);
+	    
+	
+	    if (!$validator->validate()) {
+	        $errors = $validator->errors();
+	        Session::flash('error', $errors ? array_shift($errors)[0] : 'Ошибка');
+	        $this->response->redirect( Request::currentUri() );
+	    }
+
+
     }
+	
 }
