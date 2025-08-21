@@ -7,7 +7,7 @@ return [
                             'controller' => [MainApp\Controllers\IndexController::class, 'index'],
                         ],
                         'POST' => [
-                            'controller' => [MainApp\Controllers\IndexController::class, 'postData'],
+                            'controller' => [MainApp\Controllers\IndexController::class, 'indexPost'],
                         ],
                     ],
                 ],
